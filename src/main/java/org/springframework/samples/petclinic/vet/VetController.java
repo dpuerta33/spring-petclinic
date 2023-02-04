@@ -17,14 +17,13 @@ package org.springframework.samples.petclinic.vet;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Juergen Hoeller
@@ -33,7 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Arjen Poutsma
  */
 @Controller
-class VetController {
+public class VetController {
 
 	private final VetRepository vetRepository;
 
@@ -76,4 +75,12 @@ class VetController {
 		return vets;
 	}
 
+	@Autowired
+	VetService vetService;
+
+	@GetMapping({ "/newvet" })
+	public void createVet() {
+		System.out.println("++++++++++++++ESTADO VETSERVICE ++++++++++++++++ >>> " + vetService);
+		vetService.setVet(vetService.nuevoVet("Pepe","Perez"));
+	}
 }

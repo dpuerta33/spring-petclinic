@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.vet;
 
+import org.checkerframework.checker.units.qual.C;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
@@ -35,6 +36,7 @@ import java.util.Collection;
  * @author Sam Brannen
  * @author Michael Isvy
  */
+
 public interface VetRepository extends Repository<Vet, Integer> {
 
 	/**
@@ -55,4 +57,7 @@ public interface VetRepository extends Repository<Vet, Integer> {
 	@Cacheable("vets")
 	Page<Vet> findAll(Pageable pageable) throws DataAccessException;
 
+	@Transactional(readOnly = false)
+	@Cacheable("vets")
+	void save(Vet vet);
 }
