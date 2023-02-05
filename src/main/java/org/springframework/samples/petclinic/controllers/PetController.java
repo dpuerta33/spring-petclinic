@@ -13,10 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner;
+package org.springframework.samples.petclinic.controllers;
 
 import java.util.Collection;
 
+import org.springframework.samples.petclinic.entities.Owner;
+import org.springframework.samples.petclinic.entities.Pet;
+import org.springframework.samples.petclinic.entities.PetType;
+import org.springframework.samples.petclinic.owner.*;
+import org.springframework.samples.petclinic.repositories.OwnerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -60,7 +65,7 @@ class PetController {
 
 	@ModelAttribute("pet")
 	public Pet findPet(@PathVariable("ownerId") int ownerId,
-			@PathVariable(name = "petId", required = false) Integer petId) {
+					   @PathVariable(name = "petId", required = false) Integer petId) {
 		return petId == null ? new Pet() : this.owners.findById(ownerId).getPet(petId);
 	}
 
