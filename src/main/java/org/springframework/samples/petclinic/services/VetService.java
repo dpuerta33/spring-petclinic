@@ -78,4 +78,17 @@ public class VetService {
 		vets.getVetList().addAll(this.vetRep.findAll());
 		return vets;
 	}
+
+	// Método que se comunica con el repositorio para obtener una lista de veterinarios filtrados por apellido.
+	// Terminar de implementar.
+	public String showVetListByLastName() {
+		return ("lista de vets");
+	}
+
+	// Método que se comunica con el repositorio para obtener una lista de veterinarios filtrados por nombre.
+	// Terminar de implementar.
+	public String showVetListByFirstName() {
+		return ("lista de vets");
+	}
+
 }

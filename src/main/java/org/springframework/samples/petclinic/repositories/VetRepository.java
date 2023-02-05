@@ -19,7 +19,10 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.samples.petclinic.entities.Owner;
 import org.springframework.samples.petclinic.entities.Vet;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,4 +63,16 @@ public interface VetRepository extends Repository<Vet, Integer> {
 	@Transactional(readOnly = false)
 	@Cacheable("vets")
 	void save(Vet vet);
+
+	// Implementar función para devolver una lista de veterinarios filtrados por apellido.
+	/*
+	 *
+	 *
+	 */
+
+	// Implementar función para devolver una lista de veterinarios filtrados por nombre.
+	/*
+	 *
+	 *
+	 */
 }

@@ -16,11 +16,19 @@
 package org.springframework.samples.petclinic.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.samples.petclinic.entities.Vet;
+import org.springframework.samples.petclinic.repositories.VetRepository;
 import org.springframework.samples.petclinic.services.VetService;
 import org.springframework.samples.petclinic.entities.Vets;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Juergen Hoeller
@@ -49,5 +57,17 @@ public class VetController {
 	@GetMapping({ "/newvet" })
 	public void createVet() {
 		vetService.setVet(vetService.nuevoVet("Pepe","Perez"));
+	}
+
+	// Esta función se comunica con el servicio para obtener una lista de veterinarios filtrados por apellido.
+	@GetMapping({ "/vets/{lastName}" })
+	public String findVetByLastName(){
+		return vetService.showVetListByLastName();
+	}
+
+	// Esta función se comunica con el servicio para obtener una lista de veterinarios filtrados por nombre.
+	@GetMapping({ "/vets/{firstName}" })
+	public String findVetByFirstName(){
+		return vetService.showVetListByFirstName();
 	}
 }
