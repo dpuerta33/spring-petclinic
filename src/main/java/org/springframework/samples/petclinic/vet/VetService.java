@@ -1,12 +1,9 @@
-package org.springframework.samples.petclinic.services;
+package org.springframework.samples.petclinic.vet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.samples.petclinic.repositories.VetRepository;
-import org.springframework.samples.petclinic.entities.Vet;
-import org.springframework.samples.petclinic.entities.Vets;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;

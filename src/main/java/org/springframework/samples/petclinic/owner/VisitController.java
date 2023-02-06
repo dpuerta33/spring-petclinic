@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.controllers;
+package org.springframework.samples.petclinic.owner;
 
 import java.util.Map;
 
-import org.springframework.samples.petclinic.entities.Owner;
-import org.springframework.samples.petclinic.entities.Pet;
-import org.springframework.samples.petclinic.entities.Visit;
-import org.springframework.samples.petclinic.repositories.OwnerRepository;
+import org.springframework.samples.petclinic.owner.Owner;
+import org.springframework.samples.petclinic.pet.Pet;
+import org.springframework.samples.petclinic.owner.Visit;
+import org.springframework.samples.petclinic.owner.OwnerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;

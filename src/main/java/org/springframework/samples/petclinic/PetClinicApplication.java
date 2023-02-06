@@ -16,10 +16,14 @@
 
 package org.springframework.samples.petclinic;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+/*
 import org.springframework.context.annotation.ImportRuntimeHints;
-
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+*/
 /**
  * PetClinic Spring Boot Application.
  *
@@ -28,7 +32,7 @@ import org.springframework.context.annotation.ImportRuntimeHints;
  */
 
 @SpringBootApplication
-@ImportRuntimeHints(PetClinicRuntimeHints.class)
+@OpenAPIDefinition(info = @Info(title = "ProductStore API", version = "2.0", description = "ProductStore Information"))
 public class PetClinicApplication {
 	/*
 		TAREA 1:
